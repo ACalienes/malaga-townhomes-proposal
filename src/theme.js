@@ -20,6 +20,13 @@ const theme = {
     date: 'March 2026',
   },
 
+  // ─── Analytics ───
+  analytics: {
+    projectId: 'malaga-townhomes',
+    endpoint: 'https://SUPABASE_PROJECT_URL/functions/v1/ingest',  // TODO: replace with actual Supabase URL
+    apiKey: 'SUPABASE_ANON_KEY',  // TODO: replace with actual anon key
+  },
+
   // ─── Images ───
   images: {
     hero: '/images/hero-rendering.jpg',
@@ -98,9 +105,14 @@ const theme = {
         expanded: 'We begin with brand identity to ensure a cohesive visual language across every touchpoint. From there, we design and produce a luxury marketing magazine, materials and specifications booklet, floor plan booklet, and branded presentation packaging. All print materials are prepared from architectural renderings and specs so they are ready the moment construction completes.',
       },
       {
-        label: 'Phase 2: Photography and Video',
+        label: 'Phase 2: Dwell 365 Master Website',
+        detail: 'A company website that launches with existing renderings. Real photography replaces placeholder images after Phase 3 at no additional cost.',
+        expanded: 'Development begins after brand concept approval. The site includes a company homepage, about page, Malaga property landing page with gallery, specs, floor plans, and inquiry form, a contact page, and a reusable property page template so future developments become simple additions. Professional copywriting up to 2,500 words. The site goes live with renderings from Phase 1 and updates seamlessly once real photography is available.',
+      },
+      {
+        label: 'Phase 3: Photography and Video',
         detail: 'Professional photography and cinematic video production once the property is staged and furnished.',
-        expanded: 'Once the space is finished and staged, we deploy a full production team for interior, exterior, aerial, and detail photography (55-75 images total), a cinematic marketing video with FPV drone coverage, targeted digital ad cuts, and an updated brochure insert with real photography to replace the rendering-based version from Phase 1.',
+        expanded: 'Once the space is finished and staged, we deploy a full production team for interior, exterior, aerial, and detail photography (40-50 images total), a cinematic marketing video with FPV drone coverage, targeted digital ad cuts, and an updated brochure insert with real photography. Deliverables feed back into the live website and print materials.',
       },
     ],
   },
@@ -111,7 +123,7 @@ const theme = {
     label: 'YOUR DIGITAL PRESENCE',
     headline: 'The Site Does Not Match the Build',
     currentIssues: {
-      intro: 'We audited d3vest.com and malagatownhomes.com. For a $6.15 million per-unit property in the Coral Gables Biltmore section, the current web presence has issues that are costing you credibility before a buyer ever walks through the door.',
+      intro: 'We audited d3vest.com and malagatownhomes.com. For a $6.5 million per-unit property in the Coral Gables Biltmore section, the current web presence has issues that are costing you credibility before a buyer ever walks through the door.',
       items: [
         { headline: 'Default Wix placeholder title', detail: 'Google search results show "My Site." Every buyer sees that before they click.' },
         { headline: 'Zero organic search visibility', detail: 'Client-side rendering blocks Google indexing. The only indexed page is the booking page. malagatownhomes.com redirects to a landing page with no indexable content.' },
@@ -123,19 +135,19 @@ const theme = {
       ],
     },
     proposal: {
-      intro: 'A purpose-built malagatownhomes.com that presents the property at the level it was constructed. One page, no template, designed to convert qualified interest into a scheduled showing. Built during Phase 1 using renderings and architectural specs, then updated with professional photography after Phase 2.',
+      intro: 'A Dwell 365 master website that presents the company and the Malaga property at the level they were built. Company homepage, about page, Malaga property landing page, and contact page. Built with a reusable property page template so future developments become simple additions, not full rebuilds. Launches with existing renderings and imagery. Real photography from Phase 3 replaces placeholder images on the live site at no additional cost.',
       items: [
-        'Custom-built responsive site (not Wix, not a template) with proper SEO, meta tags, and Open Graph data so the property appears correctly in Google and link previews',
-        'Full-screen photography gallery with interior, exterior, aerial, and detail shots organized by room and level',
-        'Interactive floor plans: tap any room across all three levels to see dimensions, finishes, and fixtures',
-        'Specifications and materials section organized by trade, matching the print booklet',
-        'Inquiry form with automated lead notifications to your team and CRM integration',
-        'Professional copywriting (up to 2,000 words) written to sell the lifestyle, not describe the square footage',
+        'Custom-built responsive site (not Wix, not a template) with proper SEO, meta tags, and Open Graph data',
+        'Company homepage and about page establishing the Dwell 365 brand',
+        'Malaga property landing page with full-screen gallery, floor plans, specs, and inquiry form',
+        'Reusable property page template for future developments (additional pages quoted separately)',
+        'Contact page with automated lead notifications',
+        'Professional copywriting (up to 2,500 words) written to sell the lifestyle, not describe the square footage',
         'Responsive design tested on desktop, tablet, and mobile Safari',
         'Connected to the same brand identity established in Phase 1',
       ],
     },
-    price: 6500,
+    price: 12000,
   },
 
   // ─── iPad Deck (Add-On Section) ───
@@ -173,8 +185,13 @@ const theme = {
         description: 'When Phase 2 photography is complete, detail shots load directly into each room view. Close-ups of the recessed hardware, the white oak stairs, the steam generator. Optional but powerful. The deck works without photography. It works even better with it.',
       },
     ],
+    crestronIntegration: {
+      headline: 'Crestron Smart Home Integration',
+      description: 'Live integration with the home\'s Crestron smart systems — lighting scenes, climate control, and automated routines triggered directly from the iPad during showings. The buyer doesn\'t just see the specs. They experience the home responding to a single tap.',
+      contingency: 'Smart home functionality contingent on successful API integration and testing. If integration proves technically infeasible, the experience is delivered as a standalone interactive content deck and the investment adjusts to $13,000.',
+    },
     closingStatement: 'When MG Developer sells a property down the street, the buyer gets a folder. When Dwell 365 sells a property on Malaga, the buyer gets an experience that starts at the gate and does not end until they leave. This is the tool that makes that possible.',
-    price: 13000,
+    price: 18000,
   },
 
   // ─── Scope (Phased Deliverables) ───
@@ -214,7 +231,7 @@ const theme = {
           {
             heading: 'Production',
             items: [
-              'Professional copywriting for all print collateral (up to 2,000 words)',
+              'Professional copywriting for all print collateral (up to 1,500 words)',
               'Print production management: vendor coordination, paper and finish selection, proof approval, and delivery',
             ],
           },
@@ -222,9 +239,35 @@ const theme = {
       },
       {
         number: '02',
+        title: 'Dwell 365 Master Website',
+        subtitle: 'Begins after brand concept approval (~Week 3)',
+        intro: 'A company website that presents Dwell 365 and the Malaga property at the level they were built. Launches with existing renderings and imagery. Real photography from Phase 3 replaces placeholder images on the live site at no additional cost.',
+        groups: [
+          {
+            heading: 'Website',
+            items: [
+              'Custom-built responsive site with proper SEO, meta tags, and Open Graph data',
+              'Company homepage and about page establishing the Dwell 365 brand',
+              'Malaga property landing page with full-screen gallery, floor plans, specs, and inquiry form',
+              'Reusable property page template for future developments (additional pages quoted separately)',
+              'Contact page with automated lead notifications',
+            ],
+          },
+          {
+            heading: 'Content',
+            items: [
+              'Professional copywriting (up to 2,500 words) written to sell the lifestyle, not describe the square footage',
+              'Responsive design tested on desktop, tablet, and mobile Safari',
+              'Connected to the same brand identity established in Phase 1',
+            ],
+          },
+        ],
+      },
+      {
+        number: '03',
         title: 'Photography and Video Production',
-        subtitle: 'Weeks 7-12 (after staging and furnishing)',
-        intro: 'Professional imagery and cinematic video that capture the quality of the finished, fully furnished space and give every listing platform, agent, and prospective buyer the strongest possible first impression.',
+        subtitle: 'When unit is complete and furnished',
+        intro: 'Professional imagery and cinematic video that capture the quality of the finished, fully furnished space. Deliverables feed back into the live website and print materials.',
         groups: [
           {
             heading: 'Photography',
@@ -247,6 +290,7 @@ const theme = {
             heading: 'Deliverables',
             items: [
               'Updated brochure insert with real photography to replace the rendering-based version from Phase 1',
+              'Real photography replaces renderings on the live Dwell 365 website',
               'Listing-ready image package optimized for MLS, Zillow, and Realtor.com',
             ],
           },
@@ -255,10 +299,14 @@ const theme = {
     ],
     exclusions: [
       'All materials are for Unit 1 (628 Malaga Avenue) only. Production for Unit 2 (626) is a separate engagement.',
+      'Additional property pages beyond Malaga at launch',
+      'Website content management system (CMS)',
+      'Ongoing website maintenance, hosting, and domain costs after launch',
       'Staging or furniture rental',
       'Additional shooting days beyond the scope defined above',
       'Social media management or content posting',
       'Paid advertising spend, MLS listing support, or media buying',
+      'Reprints due to client-side content changes after approval',
     ],
   },
 
@@ -273,28 +321,36 @@ const theme = {
         title: 'Brand and Print Collateral',
         description: 'Brand identity, logo, magazine design, booklets, packaging, and print production. All work uses architectural renderings and specs provided by Thais Tebet and the construction team.',
         timeframe: 'Weeks 1-6',
+        startWeek: 1,
+        endWeek: 6,
         core: true,
       },
       {
         number: '02',
-        title: 'Photography and Video',
-        description: 'Triggered once the property is staged and furnished. Full photography coverage (55-75 images), cinematic video with FPV drone, digital ad cuts, and updated brochure insert with real imagery.',
-        timeframe: 'Weeks 7-12',
+        title: 'Dwell 365 Master Website',
+        description: 'Company homepage, about page, Malaga property landing page, contact page. Reusable property page template for future developments. Launches with existing renderings and imagery. Real photography replaces placeholders after Phase 3.',
+        timeframe: 'Starts after brand concept approval',
+        startWeek: 3,
+        endWeek: 10,
         core: true,
       },
       {
-        number: '+',
-        title: 'Property Website',
-        description: 'Built in parallel with Phase 1 using renderings and architectural specs. Live before construction completes. Photography swapped in after Phase 2.',
-        timeframe: 'Weeks 2-6',
-        core: false,
+        number: '03',
+        title: 'Photography and Video',
+        description: 'Triggered once the property is staged and furnished. Full photography coverage (40-50 images), cinematic video with FPV drone, digital ad cuts, updated brochure insert, and website image swap.',
+        timeframe: 'When unit is complete',
+        startWeek: 8,
+        endWeek: 14,
+        core: true,
       },
       {
-        number: '+',
-        title: 'Interactive iPad Deck',
-        description: 'Built in Phase 1 so it is ready the moment the property can be shown. All specifications, materials data, floor plans, and brand narrative loaded from day one. Photography added after Phase 2 if desired.',
-        timeframe: 'Weeks 3-6',
-        core: false,
+        number: '04',
+        title: 'Interactive Property Experience',
+        description: 'Web-based iPad presentation with room-by-room navigation, specs, materials, and brand narrative. Live Crestron smart home integration for lighting, climate, and scenes during showings.',
+        timeframe: 'After Phase 2 or parallel to Phase 3',
+        startWeek: 10,
+        endWeek: 16,
+        core: true,
       },
     ],
   },
@@ -306,68 +362,67 @@ const theme = {
     headline: 'Choose Your Market Position',
     packages: [
       {
-        title: 'Total Market Position',
-        price: 47300,
-        tag: 'The complete package. Brand, print, production, a rebuilt property website, and the interactive iPad deck for in-person showings.',
-        recommended: true,
-        items: [
-          'Phase 1: Brand identity, logo, magazine (10-12 pages), specs booklet, floor plans, folder, bag',
-          'Phase 2: Photography (55-75 images), cinematic video with FPV, digital ad cuts, brochure insert',
-          'Property website on malagatownhomes.com with gallery, floor plans, inquiry form',
-          'Interactive iPad Deck for in-person showings',
-          'Full copywriting across all deliverables',
-          'Print production management',
-        ],
-        phaseBreakdown: [
-          { label: 'Phase 1: Brand and Print', price: 16100 },
-          { label: 'Phase 2: Photography and Video', price: 11700 },
-          { label: 'Property Website', price: 6500 },
-          { label: 'Interactive iPad Deck', price: 13000 },
-        ],
-      },
-      {
-        title: 'Full Production',
-        price: 34300,
-        tag: 'Brand, print, photography, video, and a rebuilt property website to bring everything online.',
+        title: 'The Complete Experience',
+        price: 57800,
+        tag: 'Maximum market impact and buyer experience differentiation.',
         recommended: false,
         items: [
-          'Phase 1: Brand identity, logo, magazine (10-12 pages), specs booklet, floor plans, folder, bag',
-          'Phase 2: Photography (55-75 images), cinematic video with FPV, digital ad cuts, brochure insert',
-          'Property website on malagatownhomes.com with gallery, floor plans, inquiry form',
-          'Full copywriting across all deliverables',
+          'Phase 1: Brand identity guidelines (12-16 pages), luxury brochure (10-12 pages), specs booklet, floor plans, folder, bag',
+          'Phase 2: Dwell 365 master website with Malaga property landing page and reusable template',
+          'Phase 3: Photography (40-50 images), cinematic video with FPV drone, brochure insert update, website image swap',
+          'Phase 4: Interactive property experience with Crestron smart home integration',
+          'Full copywriting across all deliverables (up to 2,500 words website)',
           'Print production management',
         ],
         phaseBreakdown: [
           { label: 'Phase 1: Brand and Print', price: 16100 },
-          { label: 'Phase 2: Photography and Video', price: 11700 },
-          { label: 'Property Website', price: 6500 },
+          { label: 'Phase 2: Dwell 365 Master Website', price: 12000 },
+          { label: 'Phase 3: Photography and Video', price: 11700 },
+          { label: 'Phase 4: Interactive Property Experience', price: 18000 },
         ],
       },
       {
-        title: 'Production Essentials',
-        price: 21500,
-        tag: 'Core brand, print, and production assets to bring the property to market.',
+        title: 'Market Position',
+        price: 39800,
+        tag: 'Comprehensive marketing that positions the property at the level it deserves.',
+        recommended: true,
+        items: [
+          'Phase 1: Brand identity guidelines (12-16 pages), luxury brochure (10-12 pages), specs booklet, floor plans, folder, bag',
+          'Phase 2: Dwell 365 master website with Malaga property landing page and reusable template',
+          'Phase 3: Photography (40-50 images), cinematic video with FPV drone, brochure insert update, website image swap',
+          'Full copywriting across all deliverables (up to 2,500 words website)',
+          'Print production management',
+        ],
+        phaseBreakdown: [
+          { label: 'Phase 1: Brand and Print', price: 16100 },
+          { label: 'Phase 2: Dwell 365 Master Website', price: 12000 },
+          { label: 'Phase 3: Photography and Video', price: 11700 },
+        ],
+      },
+      {
+        title: 'Launch Ready',
+        price: 24500,
+        tag: 'Physical marketing materials and production assets.',
         recommended: false,
         items: [
           'Phase 1: Brand identity, brochure (6-8 pages), specs booklet, floor plan booklet, folder',
-          'Phase 2: Photography (30-40 images), cinematic video with FPV, brochure insert',
+          'Phase 2: Photography (30-40 images), cinematic video with FPV drone, brochure insert',
           'Print production management',
         ],
         phaseBreakdown: [
           { label: 'Phase 1: Brand and Print (essential)', price: 9800 },
-          { label: 'Phase 2: Photography and Video', price: 11700 },
+          { label: 'Phase 2: Photography and Video', price: 14700 },
         ],
       },
     ],
     addOns: [],
     paymentTerms: [
-      'Per phase: 50% deposit before work begins',
-      '25% at midpoint milestone',
-      '25% on final delivery',
-      'Print production invoiced separately at cost + 15%',
-      'No work begins on any phase until that phase deposit is received',
+      'One payment per phase, paid in full before work on that phase begins',
+      'Each payment is due when that phase is ready to start',
+      'Option 2 payments: $16,100 (Phase 1) then $12,000 (Phase 2) then $11,700 (Phase 3)',
+      'Print production invoiced separately once vendor quotes are confirmed and quantities approved',
     ],
-    printNote: 'Print production is invoiced separately at cost + 15%. Estimated $5,000-$12,000 depending on quantities and finishes.',
+    printNote: 'Print production is invoiced separately. Estimated $5,000-$12,000 depending on quantities and finishes.',
   },
 
   // ─── Market Context ───
@@ -377,14 +432,14 @@ const theme = {
     headline: 'What the Market Says You Should Spend',
     paragraphs: [
       'NAHB survey data shows the average home builder spends 0.7-1.0% of final sales price on marketing (2019-2024 NAHB Cost of Constructing a Home surveys). For luxury product in the Coral Gables market, industry practitioners across $5B+ in development experience recommend 1-1.5% of total estimated sellout.',
-      'At $13.5M total sellout, 1% equals $135,000. Our recommended option at $47,300 represents just 0.35% of sellout.',
+      'At $13.5M total sellout, 1% equals $135,000. Our recommended option at $39,800 represents just 0.29% of sellout.',
     ],
     benchmark: {
       sellout: 13500000,
       industryPercent: 1,
       industryBudget: 135000,
-      recommendedPrice: 47300,
-      recommendedPercent: 0.35,
+      recommendedPrice: 39800,
+      recommendedPercent: 0.29,
     },
     sources: [
       'NAHB Cost of Constructing a Home 2024',
@@ -418,6 +473,75 @@ const theme = {
     ],
   },
 
+  // ─── Print Estimate ───
+  printEstimate: {
+    id: 'printEstimate',
+    label: 'PRINT PRODUCTION',
+    headline: 'Print Collateral Pricing',
+    intro: 'Print production is invoiced separately from creative services. Below is a detailed breakdown of estimated production costs based on confirmed vendor pricing. All prices reflect current published rates and will be finalized once quantities and finishes are approved.',
+    managementNote: 'Kameha manages the full vendor relationship: sourcing, proofing, quality control, and delivery coordination. Print production costs are passed through at vendor rates. Design and print-ready preparation fees are included in Phase 1.',
+    categories: [
+      {
+        title: 'Presentation Folders',
+        spec: '9x12, two-pocket, soft-touch lamination + raised gold foil',
+        vendor: 'PrestoFolders',
+        tiers: [
+          { qty: 50, total: 250, perUnit: 5.00 },
+          { qty: 100, total: 500, perUnit: 5.00 },
+          { qty: 250, total: 750, perUnit: 3.00 },
+          { qty: 500, total: 1300, perUnit: 2.60 },
+        ],
+      },
+      {
+        title: '12-Page Marketing Brochure',
+        spec: '8.5x11, 14pt cover + soft-touch lamination, 100lb gloss interior, saddle-stitched, full color',
+        vendor: 'APD Printing',
+        tiers: [
+          { qty: 50, total: 274, perUnit: 5.48 },
+          { qty: 100, total: 325, perUnit: 3.25 },
+          { qty: 250, total: 608, perUnit: 2.43 },
+          { qty: 500, total: 1012, perUnit: 2.02 },
+        ],
+      },
+      {
+        title: 'Floor Plan Insert',
+        spec: '11x17, full color both sides, 100lb gloss card, half-fold to fit presentation folder',
+        vendor: 'PrintKeg',
+        tiers: [
+          { qty: 50, total: 200, perUnit: 4.00 },
+          { qty: 100, total: 300, perUnit: 3.00 },
+          { qty: 250, total: 400, perUnit: 1.60 },
+          { qty: 500, total: 600, perUnit: 1.20 },
+        ],
+      },
+    ],
+    summary: {
+      label: 'Complete Print Kit (folder + brochure + floor plan)',
+      tiers: [
+        { qty: 50, total: 724, perUnit: 14.48 },
+        { qty: 100, total: 1125, perUnit: 11.25 },
+        { qty: 250, total: 1758, perUnit: 7.03 },
+        { qty: 500, total: 2912, perUnit: 5.82 },
+      ],
+    },
+    welcomePacket: {
+      title: 'Welcome Packet (Optional Add-On)',
+      intro: 'A curated luxury welcome packet for buyers and key stakeholders. Component pricing is being finalized with vendors and will be presented as a separate line item once formal quotes are confirmed.',
+      components: [
+        'Custom magnetic closure presentation box with gold foil branding',
+        'Engraved executive pen (Parker or Waterman, in gift box)',
+        'Bonded leather padfolio with debossed project logo',
+        'Branded candle with custom Mediterranean scent',
+        'Leather and metal keychain with project branding',
+        'Pre-loaded 16GB leather USB drive with floor plans and renderings',
+        'Embossed leather coaster',
+      ],
+      estimatedRange: '$80 to $112',
+      status: 'Vendor quotes in progress. Detailed line-item pricing to follow.',
+    },
+    disclaimer: 'Prices based on confirmed published vendor rates as of March 2026. Final pricing subject to vendor quote at time of order. Quantities and finishes confirmed with client before any production begins. Premium finish upgrades (embossing, spot UV, foil stamping on brochure cover) available and quoted separately upon request.',
+  },
+
   // ─── Next Steps ───
   nextSteps: {
     id: 'nextSteps',
@@ -440,9 +564,9 @@ const theme = {
   terms: {
     title: 'Project Terms',
     items: [
-      'Per phase: 50% deposit before work begins, 25% at midpoint milestone, 25% on final delivery. No work begins on any phase until that phase deposit is received.',
-      'Print production is invoiced separately at cost + 15%. Estimated $5,000-$12,000 depending on quantities and finishes. Proof/sample sent to all parties before print runs.',
-      'Phase 2 (Photography and Video) is triggered once the property reaches visual completion. Kameha and client will coordinate timing. Construction delays do not affect pricing for 120 days from proposal acceptance.',
+      'One payment per phase, paid in full before work on that phase begins. Each payment is due when that phase is ready to start. No work begins until that phase payment is received.',
+      'Print production is invoiced separately. Estimated $5,000-$12,000 depending on quantities and finishes. Proof/sample sent to all parties before print runs.',
+      'Phase 3 (Photography and Video) is triggered once the property reaches visual completion. Kameha and client will coordinate timing. Construction delays do not affect pricing for 120 days from proposal acceptance.',
       'Revisions: one consolidated set of feedback within 48 hours of each deliverable constitutes one round. Round limits per deliverable are defined in the formal agreement.',
       'Changes to approved scope, direction, or timeline require a written change order, quoted and approved before work begins.',
       'Client owns all final deliverables upon full payment. Kameha Media Group retains the right to use delivered work in portfolio and promotional materials unless otherwise agreed in writing.',

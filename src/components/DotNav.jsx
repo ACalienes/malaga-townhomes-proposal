@@ -10,6 +10,7 @@ const sections = [
   { id: 'proof', label: 'Why Kameha' },
   { id: 'context', label: 'Market' },
   { id: 'investment', label: 'Investment' },
+  { id: 'printEstimate', label: 'Print' },
   { id: 'nextSteps', label: 'Contact' },
 ]
 

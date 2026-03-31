@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { motion, AnimatePresence, useTransform } from 'framer-motion'
 import FlipDisplay from '../components/FlipDisplay.jsx'
 import useContentOverflow from '../hooks/useContentOverflow.js'
+import { track } from '@kameha/analytics'
 import theme from '../theme.js'
 
 const ease = theme.easing
@@ -77,7 +78,7 @@ export default function Investment({ progress }) {
                 key={i}
                 role="button"
                 tabIndex={0}
-                onClick={() => setSelectedTier(i)}
+                onClick={() => { setSelectedTier(i); track('tier_select', { tier: pkg.title, price: pkg.price }) }}
                 className={`relative text-left w-full overflow-hidden cursor-pointer ${isSelected ? 'shimmer-border' : ''}`}
                 style={{
                   padding: '28px 24px',
@@ -156,7 +157,7 @@ export default function Investment({ progress }) {
                 {pkg.phaseBreakdown && (
                   <div className="mt-4">
                     <button
-                      onClick={(e) => { e.stopPropagation(); setExpandedBreakdown(expandedBreakdown === i ? null : i) }}
+                      onClick={(e) => { e.stopPropagation(); setExpandedBreakdown(expandedBreakdown === i ? null : i); track('breakdown_expand', { tier: packages[selectedTier]?.title }) }}
                       style={{
                         fontFamily: 'var(--font-body)',
                         fontSize: '11px', fontWeight: 600,
@@ -234,7 +235,7 @@ export default function Investment({ progress }) {
                     transition: 'background 0.3s, border-color 0.3s',
                     opacity: useTransform(progress, [addonStart, addonEnd], [0, 1]),
                   }}
-                  onClick={() => setAddOns(prev => ({ ...prev, [addon.title]: !prev[addon.title] }))}
+                  onClick={() => { setAddOns(prev => ({ ...prev, [addon.title]: !prev[addon.title] })); track('addon_toggle', { addon: addon.title, enabled: !addOns[addon.title], price: addon.price }) }}
                 >
                   <div className="flex items-center gap-3">
                     <div style={{

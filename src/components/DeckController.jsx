@@ -14,6 +14,7 @@ import IPadDeckSection from '../sections/iPadDeckSection.jsx'
 import Timeline from '../sections/Timeline.jsx'
 import Investment from '../sections/Investment.jsx'
 import MarketContext from '../sections/MarketContext.jsx'
+import PrintEstimate from '../sections/PrintEstimate.jsx'
 import NextSteps from '../sections/NextSteps.jsx'
 import ImageDivider from '../sections/ImageDivider.jsx'
 
@@ -31,6 +32,7 @@ const SCENES = [
   { id: 'divider2', weight: 0.8, component: Divider2 },
   { id: 'context', weight: 2.0, component: MarketContext },
   { id: 'investment', weight: 6.5, component: Investment },
+  { id: 'printEstimate', weight: 4.5, component: PrintEstimate },
   { id: 'nextSteps', weight: 2.5, component: NextSteps },
 ]
 

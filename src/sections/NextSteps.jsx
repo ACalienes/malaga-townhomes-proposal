@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { motion, AnimatePresence, useTransform } from 'framer-motion'
 import ScrollTextReveal from '../components/ScrollTextReveal.jsx'
 import useContentOverflow from '../hooks/useContentOverflow.js'
+import { track } from '@kameha/analytics'
 import theme from '../theme.js'
 
 const easing = theme.easing
@@ -33,7 +34,7 @@ export default function NextSteps({ progress }) {
           type: 'acceptance',
         }),
       })
-      if (res.ok) setAccepted(true)
+      if (res.ok) { setAccepted(true); track('proposal_accept') }
     } catch {
       window.location.href = nextSteps.ctaLink
     }
@@ -54,7 +55,7 @@ export default function NextSteps({ progress }) {
           type: 'revision',
         }),
       })
-      if (res.ok) setSent(true)
+      if (res.ok) { setSent(true); track('revision_submit', { messageLength: revisionMessage.length }) }
     } catch {
       window.location.href = `${nextSteps.ctaSecondaryLink}&body=${encodeURIComponent(revisionMessage)}`
     }
@@ -149,7 +150,7 @@ export default function NextSteps({ progress }) {
             {nextSteps.ctaSecondary && (
               <motion.button
                 type="button"
-                onClick={() => setShowRevisionForm(!showRevisionForm)}
+                onClick={() => { if (!showRevisionForm) track('revision_form_open'); setShowRevisionForm(!showRevisionForm) }}
                 style={{
                   fontFamily: 'var(--font-body)',
                   fontSize: '13px', fontWeight: 700,

@@ -2,9 +2,10 @@ import { motion, useTransform } from 'framer-motion'
 import useContentOverflow from '../hooks/useContentOverflow.js'
 import theme from '../theme.js'
 
-/* Parse "Weeks X-Y" into { start, end } */
-function parseWeeks(timeframe) {
-  const match = timeframe.match(/(\d+)\s*-\s*(\d+)/)
+/* Get week range from explicit fields or parse "Weeks X-Y" */
+function parseWeeks(step) {
+  if (step.startWeek && step.endWeek) return { start: step.startWeek, end: step.endWeek }
+  const match = step.timeframe.match(/(\d+)\s*-\s*(\d+)/)
   if (!match) return { start: 1, end: 16 }
   return { start: parseInt(match[1], 10), end: parseInt(match[2], 10) }
 }
@@ -101,7 +102,7 @@ export default function Timeline({ progress }) {
           {/* Phase bars */}
           <div className="flex flex-col gap-2 mt-3">
             {timeline.steps.map((step, i) => {
-              const { start, end } = parseWeeks(step.timeframe)
+              const { start, end } = parseWeeks(step)
               const leftPct = ((start - 1) / TOTAL_WEEKS) * 100
               const widthPct = ((end - start + 1) / TOTAL_WEEKS) * 100
               const isAddOn = !step.core
